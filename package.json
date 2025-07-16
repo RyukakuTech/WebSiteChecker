@@ -1,0 +1,10 @@
+{
+  "name": "website-checker",
+  "version": "1.0.0",
+  "description": "WebSite checker with Slack notification",
+  "main": "website-checker.js",
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "node-fetch": "^3.3.0"
+  }
+}

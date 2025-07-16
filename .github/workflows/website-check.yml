@@ -1,0 +1,28 @@
+# .github/workflows/website-check.yml
+name: Website Status Check
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # 15分ごとに実行
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  website-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm install puppeteer
+        
+      - name: Website status check
+        run: node website-check.js
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
