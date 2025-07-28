@@ -2,8 +2,8 @@
 name: Website Status Check
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'  # 15分ごとに実行
+  # schedule:
+  #   - cron: '*/15 * * * *'  # 15分ごとに実行（停止中）
   workflow_dispatch:  # 手動実行も可能
 
 jobs:
